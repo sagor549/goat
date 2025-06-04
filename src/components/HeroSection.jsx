@@ -13,9 +13,9 @@ const HeroSection = () => {
   const modalContentRef = useRef(null);
   
   const [isBottleOpen, setIsBottleOpen] = useState(false);
+  const isClosingRef = useRef(false); // Prevent multiple close animations
 
   // Theme colors
-  const primaryColor = 'rgb(34, 32, 87)';
   const accentColor = 'rgb(100, 200, 255)';
   const textPrimary = 'rgb(250, 250, 255)';
   const textSecondary = 'rgba(250, 250, 255, 0.7)';
@@ -28,6 +28,9 @@ const HeroSection = () => {
 
   // Close bottle modal
   const closeBottleModal = () => {
+    if (isClosingRef.current) return;
+    isClosingRef.current = true;
+    
     gsap.to(modalContentRef.current, {
       scale: 0.8,
       opacity: 0,
@@ -40,6 +43,7 @@ const HeroSection = () => {
           onComplete: () => {
             setIsBottleOpen(false);
             document.body.style.overflow = 'auto';
+            isClosingRef.current = false;
           }
         });
       }
@@ -48,19 +52,41 @@ const HeroSection = () => {
 
   // Animate modal when opened
   useEffect(() => {
-    if (isBottleOpen) {
-      gsap.fromTo(
-        modalRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.3 }
-      );
+    if (isBottleOpen && modalRef.current && modalContentRef.current) {
+      gsap.set(modalRef.current, { opacity: 0 });
+      gsap.set(modalContentRef.current, { scale: 0.8, opacity: 0 });
       
-      gsap.fromTo(
-        modalContentRef.current,
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.7)' }
-      );
+      gsap.to(modalRef.current, {
+        opacity: 1,
+        duration: 0.3
+      });
+      
+      gsap.to(modalContentRef.current, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'back.out(1.7)'
+      });
     }
+  }, [isBottleOpen]);
+
+  // Close modal when clicking outside content
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (isBottleOpen && 
+          modalContentRef.current && 
+          !modalContentRef.current.contains(e.target)) {
+        closeBottleModal();
+      }
+    };
+
+    if (isBottleOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, [isBottleOpen]);
 
   // Initial animations
@@ -287,10 +313,15 @@ const HeroSection = () => {
       {isBottleOpen && (
         <div 
           ref={modalRef}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center"
+          className="fixed inset-0 z-50 flex items-center justify-center"
           style={{ opacity: 0 }}
-          onClick={closeBottleModal}
         >
+          {/* Clickable overlay that closes the modal */}
+          <div 
+            className="absolute inset-0 bg-black/90 backdrop-blur-xl"
+            onClick={closeBottleModal}
+          ></div>
+          
           <button 
             className="absolute top-6 right-6 text-3xl text-white z-50 hover:text-cyan-300 transition-colors"
             onClick={closeBottleModal}
@@ -298,11 +329,12 @@ const HeroSection = () => {
             &times;
           </button>
           
+          {/* Entire modal content is clickable to close */}
           <div 
             ref={modalContentRef}
-            className="relative max-w-4xl w-full p-4"
-            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-4xl w-full p-4 z-50 cursor-pointer"
             style={{ transform: 'scale(0.8)', opacity: 0 }}
+            onClick={closeBottleModal}
           >
             <img 
               src="/assets/bottleg.png" 
