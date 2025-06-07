@@ -142,7 +142,7 @@ const AboutSection = () => {
               />
               <div 
                 className="absolute inset-0 via-transparent to-transparent rounded-xl"
-                style={{ background: `linear-gradient(to top, ${primaryColor}, transparent)` }}
+                style={{ background: ` transparent)` }}
               ></div>
             </div>
           </div>

@@ -280,7 +280,7 @@ style={{ backgroundColor: accentColor }}
       {/* Greatest of All Time text */}
       <div 
         ref={greatestRef}
-        className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 md:left-auto md:transform-none md:-right-8 md:top-1/2 md:-translate-y-1/2"
+        className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 md:left-auto md:transform-none md:-right-8 md:top-1/2 md:-translate-y-1/2"
         style={{ 
           transform: 'translateY(-50%) translateX(20px) scale(0.8)', 
           opacity: 0 
@@ -308,7 +308,7 @@ style={{ backgroundColor: accentColor }}
   {/* Description */}
   <div 
     ref={descriptionRef}
-    className="relative z-10 max-w-2xl mx-auto mt-3 md:mt-16 mb-4 md:mb-20 text-center"
+    className="relative z-10 max-w-2xl mx-auto mt-4 md:mt-16 mb-6 md:mb-20 text-center"
     style={{ 
       transform: 'translateY(30px)', 
       opacity: 0 
@@ -366,7 +366,7 @@ style={{ backgroundColor: accentColor }}
   )}
 
   {/* Decorative scroll indicator */}
-  <div className="absolute bottom-2 md:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+  <div className="absolute bottom-8 md:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
     <div 
       className="text-xs mb-2 tracking-widest opacity-60"
       style={{ color: accentColor }}
