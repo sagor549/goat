@@ -10,10 +10,10 @@ const textSecondary = 'rgba(250, 250, 255, 0.7)';
 
 const AboutSection = () => {
   const galleryImages = [
-    { src: "/assets/media1.png", title: "Master Distillery", description: "Our state-of-the-art distilling facility" },
-    { src: "/assets/media2.png", title: "Pure Ingredients", description: "Locally-sourced grains and pure spring water" },
-    { src: "/assets/media3.png", title: "Handcrafted Bottling", description: "Each bottle carefully inspected and filled" },
-    { src: "/assets/media4.png", title: "Expert Tasting", description: "Our master tasters ensure perfect quality" }
+    { src: "/assets/media1-edit.png", title: "Master Distillery", description: "Our state-of-the-art distilling facility" },
+    { src: "/assets/media2-edit.png", title: "Pure Ingredients", description: "Locally-sourced grains and pure spring water" },
+    { src: "/assets/media3-edit.png", title: "Handcrafted Bottling", description: "Each bottle carefully inspected and filled" },
+    { src: "/assets/media4-edit.png", title: "Expert Tasting", description: "Our master tasters ensure perfect quality" }
   ];
 
   return (
@@ -41,7 +41,7 @@ const AboutSection = () => {
             className="text-4xl md:text-5xl font-bold mb-8 tracking-tight font-playfair"
             style={{ color: textPrimary }}
           >
-            STAY BIG AND WHITE
+            STAY BIG AND BOLD
           </h2>
           <p 
             className="max-w-4xl mx-auto text-[18px] leading-relaxed font-montserrat"
@@ -98,7 +98,7 @@ const AboutSection = () => {
             <div className="relative aspect-[3/4]">
               <div 
                 className="absolute inset-0 to-transparent rounded-xl z-10"
-                style={{ background: `linear-gradient(to top, ${primaryColor}, transparent)` }}
+                style={{ background: ` transparent)` }}
               ></div>
               <div className="absolute -inset-4">
                 <div 
@@ -111,7 +111,7 @@ const AboutSection = () => {
                 ></div>
               </div>
               <img 
-                src="/assets/pic10.png" 
+                src="/assets/pic10-edit.png" 
                 alt="GOAT Vodka Bottle" 
                 className="w-full h-full object-cover rounded-xl shadow-2xl relative z-0"
               />
@@ -136,7 +136,7 @@ const AboutSection = () => {
           <div className="relative max-w-2xl mx-auto">
             <div className="relative">
               <img 
-                src="/assets/bg3.png" 
+                src="/assets/bg3-edit.png" 
                 alt="GOAT Master Select" 
                 className="w-full rounded-xl shadow-2xl"
               />
@@ -177,7 +177,7 @@ const AboutSection = () => {
               className="relative overflow-hidden rounded-2xl group"
             >
               <div className="absolute inset-0 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                   style={{ background: `linear-gradient(to top, ${primaryColor}, transparent)` }}
+                   style={{ background: ` transparent)` }}
               ></div>
               <div className="absolute bottom-0 left-0 p-8 z-20 translate-y-6 group-hover:translate-y-0 transition-transform duration-700">
                 <h4 

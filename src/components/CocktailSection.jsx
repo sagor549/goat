@@ -99,7 +99,7 @@ const CocktailSection = () => {
     {
       name: "Golden-Trophy Martini",
       tagline: "Straight prestige—dry, cold, and literally flecked with gold",
-      image: "/assets/cock5.png",
+      image: "/assets/golden.jpg",
       ingredients: [
         "2½ oz G.O.A.T. Vodka",
         "½ oz dry vermouth",

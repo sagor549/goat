@@ -2,12 +2,18 @@
 import React, { useState, useEffect } from 'react';
 
 const imagePaths = [
-  "/assets/media1.png",
-  "/assets/media2.png",
-  "/assets/media3.png",
-  "/assets/media4.png",
+  "/assets/media1-edit.png",
+  "/assets/media2-edit.png",
+  "/assets/media3-edit.png",
+  "/assets/media4-edit.png",
   "/assets/pic9.png",
+  "/assets/pic10-edit.png",
+  "/assets/pic2.jpg",
+  "/assets/pic3.jpg",
   "/assets/pic4.jpg",
+  "/assets/pic5.jpg",
+  "/assets/pic6.jpg",
+  "/assets/pic7.jpg",
 ];
 
 const Media = () => {
